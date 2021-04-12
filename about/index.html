@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Eric的博客">
+    <meta name="keywords" content="关于, Eric的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Eric的博客</title>
+    <title>关于 | Eric的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">about</h1>
                 </div>
             </div>
         </div>
@@ -467,65 +467,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="从零开始创建免费个人博客"><a href="#从零开始创建免费个人博客" class="headerlink" title="从零开始创建免费个人博客"></a>从零开始创建免费个人博客</h1><p>1.<strong>部署环境</strong><br>2.<strong>初始化个人博客</strong><br>3.<strong>写博客</strong><br>4.<strong>部署到远端GitHub</strong><br>5.<strong>换主题</strong></p>
-<p>&emsp;&emsp;写在前面，我所使用的系统环境是RHEL8，所以本文就以Linux为示例，其他系统操作命令基本一致。</p>
-<h2 id="1-部署环境"><a href="#1-部署环境" class="headerlink" title="1.部署环境"></a>1.部署环境</h2><p>&emsp;&emsp;我们需用到的工具有</p>
-<ul>
-<li>git</li>
-<li>GitHub</li>
-<li>node.js</li>
-<li>hexo</li>
-</ul>
-<p>&emsp;&emsp;我们从安装软件开始，需要各位先切换到root用户，然后使用命令<br>安装git</p>
-<pre class="line-numbers language-none"><code class="language-none">yum install git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>安装Node.js</strong></p>
-<p>使用命令查看node.js版本</p>
-<pre class="line-numbers language-none"><code class="language-none">
-yum module list | grep nodejs
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>选择相应版本进行安装</p>
-<pre class="line-numbers language-none"><code class="language-none">yum install nodejs #安装默认版本
-yum module install nodejs:10 #安装指定版本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>使用命令验证 node和npm是否安装成功</p>
-<pre class="line-numbers language-none"><code class="language-none">node -v #验证 node的版本号
-npm -v  #验证 npm的版本号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>更换国内源，方便使用(可选操作)</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>安装博客框架hexo(如果未安装cnpm 那就使用npm)</p>
-<pre class="line-numbers language-none"><code class="language-none">cnpm install -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>安装完成后退出root用户（因为我在root用户下使用hexo命令提示未找到命令）<br>到目前为止我们的准备工作就已经做完了，下面我们要开始初始化个人博客了。</p>
-<h2 id="2-初始化个人博客"><a href="#2-初始化个人博客" class="headerlink" title="2.初始化个人博客"></a>2.初始化个人博客</h2><p>&emsp;&emsp;首先在用户目录下创建一个空文件夹blog（名称可以自定义）然后*==进入目录==*执行命令</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>等待命令执行完成之后，我们的博客系统就已经创建完成了。我们可以启动在本地预览一下<br>启动命令</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>执行完命令之后，框架已经帮我们在本地4000端口上运行起了博客。我们可以在浏览器中输入 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 就可以看到我们本地的项目预览了，并且hexo 帮我们创建了一篇 Hello World的文章。</p>
-<h2 id="3-写博客"><a href="#3-写博客" class="headerlink" title="3.写博客"></a>3.写博客</h2><p>&emsp;&emsp;使用命令</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo n ***  #就可以创建一篇新的博客<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>创建出的新博客内容以.md的形式存在与目录~/blog/source/_posts 中<br>大家可以自行更改美化。</p>
-<h2 id="3-部署到远端（GitHub）"><a href="#3-部署到远端（GitHub）" class="headerlink" title="3.部署到远端（GitHub）"></a>3.部署到远端（GitHub）</h2><p>&emsp;&emsp;这里我演示的是把个人博客部署到github上。==0元投入==。</p>
-<p>&emsp;&emsp;登陆自己的github帐号，并创建一个空的仓库，仓库名称的命名格式一定要是 ==昵称.github.io== 例如<br>我的github昵称为fulei3517,则我的仓库名称为==fulei3517.github.io==</p>
-<p>仓库创建好之后我们要安装一个部署插件，使用命令</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install --save hexo-deployer-git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>安装过程中出现的警告，忽略就可以了。安装完成之后我们配置~/blog/_config.yml文件 修改文件中的</p>
-<pre class="line-numbers language-none"><code class="language-none"># Deployment
-## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment
-deploy:
-  type: &#39;&#39;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>将这部分内容改为：</p>
-<pre class="line-numbers language-none"><code class="language-none"># Deployment
-## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment
-deploy:
-  type: git
-  repo: https:&#x2F;&#x2F;github.com&#x2F;fulei3517&#x2F;fulei3517.github.io.git(刚才你自己在github上创建的仓库地址)
-  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在Linux 上配置自己的git<br>使用命令:</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global user.email &quot;you@example.com&quot;
-git config --global user.name &quot;Your name&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>使用命令 <code>hexo d</code> 推送项目到github仓库。根据提示输入用户名和密码。<br>截至到这一步我们就完成了我们个人博客项目的配置和部署，大家现在就可以使用我们的github仓库名作为地址在浏览器进行访问了。例如我的个人博客: <a href="https://fulei3517.github.io/">https://fulei3517.github.io/</a> 大家可以自己实验一下。</p>
-<h2 id="5-换主题"><a href="#5-换主题" class="headerlink" title="5.换主题"></a>5.换主题</h2><p>（本部分内容容我找到好看的主题后下篇来说）</p>
-
+                
                 
             </div>
             <hr/>
@@ -551,7 +493,7 @@ git config --global user.name &quot;Your name&quot;<span aria-hidden="true" clas
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fulei3517.github.io/2021/04/12/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">https://fulei3517.github.io/2021/04/12/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a>
+                    <a href="https://fulei3517.github.io/about/index.html">https://fulei3517.github.io/about/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -761,13 +703,13 @@ git config --global user.name &quot;Your name&quot;<span aria-hidden="true" clas
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/04/12/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/about/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">about</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -796,16 +738,16 @@ git config --global user.name &quot;Your name&quot;<span aria-hidden="true" clas
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/12/hello-world/">
+                <a href="/about/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">about</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -826,6 +768,7 @@ git config --global user.name &quot;Your name&quot;<span aria-hidden="true" clas
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
