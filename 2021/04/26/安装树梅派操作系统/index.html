@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode算法第一题：两数之和, Eric的博客">
+    <meta name="keywords" content="安装树梅派操作系统, Eric的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode算法第一题：两数之和 | Eric的博客</title>
+    <title>安装树梅派操作系统 | Eric的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode算法第一题：两数之和</h1>
+                    <h1 class="description center-align post-title">安装树梅派操作系统</h1>
                 </div>
             </div>
         </div>
@@ -431,31 +431,22 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Leetcode/">
-                                <span class="chip bg-color">Leetcode</span>
+                            <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/">
+                                <span class="chip bg-color">树梅派</span>
                             </a>
                         
-                            <a href="/tags/%E5%88%B7%E9%A2%98/">
-                                <span class="chip bg-color">刷题</span>
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Leetcode/" class="post-category">
-                                Leetcode
-                            </a>
-                        
-                            <a href="/categories/Leetcode/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -464,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-12
+                    2021-04-26
                 </div>
                 
 
@@ -488,96 +479,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;欢迎大家来到我的博客,今天开始刷Leetcode的题，第一题求两数之和,想象中应该是比较简单的题目。我们先来看原题:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>. 两数之和
-给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
-
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-
-你可以按任意顺序返回答案。
-
-
-示例 <span class="token number">1</span>：
-
-输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2,7</span>,11,15<span class="token punctuation">]</span>, target <span class="token operator">=</span> <span class="token number">9</span>
-输出：<span class="token punctuation">[</span><span class="token number">0,1</span><span class="token punctuation">]</span>
-解释：因为 nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> + nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">9</span> ，返回 <span class="token punctuation">[</span><span class="token number">0</span>, <span class="token number">1</span><span class="token punctuation">]</span> 。
-示例 <span class="token number">2</span>：
-
-输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3,2</span>,4<span class="token punctuation">]</span>, target <span class="token operator">=</span> <span class="token number">6</span>
-输出：<span class="token punctuation">[</span><span class="token number">1,2</span><span class="token punctuation">]</span>
-示例 <span class="token number">3</span>：
-
-输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3,3</span><span class="token punctuation">]</span>, target <span class="token operator">=</span> <span class="token number">6</span>
-输出：<span class="token punctuation">[</span><span class="token number">0,1</span><span class="token punctuation">]</span>
- 
-
-提示：
-
-<span class="token number">2</span> <span class="token operator">&lt;</span><span class="token operator">=</span> nums.length <span class="token operator">&lt;</span><span class="token operator">=</span> <span class="token number">103</span>
--109 <span class="token operator">&lt;</span><span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">=</span> <span class="token number">109</span>
--109 <span class="token operator">&lt;</span><span class="token operator">=</span> target <span class="token operator">&lt;</span><span class="token operator">=</span> <span class="token number">109</span>
-只会存在一个有效答案<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>题目比较简单，按照我之前的经验，只需要使用循环嵌套，让一个数分别和其他的数进行相加和指定的数对比就可以了。下面是我用python3做的解法：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">class Solution:
-    def twoSum<span class="token punctuation">(</span>self, nums: List<span class="token punctuation">[</span>int<span class="token punctuation">]</span>, target: int<span class="token punctuation">)</span> -<span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span>: 
-        i <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> <span class="token for-or-select variable">num</span> <span class="token keyword">in</span> nums:
-            y <span class="token operator">=</span> i+1
-            <span class="token keyword">while</span> y <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>:
-                <span class="token keyword">if</span> num + nums<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">==</span> target:
-                    <span class="token builtin class-name">return</span> i,y
-            i <span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>但是提交的时候Leetcode告诉我超时了<br>看了答案才明白可以使用哈希表来简化算法的复杂度：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">class Solution:
-	<span class="token comment">#方法一</span>
-    def twoSum<span class="token punctuation">(</span>self, nums: List<span class="token punctuation">[</span>int<span class="token punctuation">]</span>, target: int<span class="token punctuation">)</span> -<span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span>: 
-        hashmap <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-        <span class="token comment">#将所有项作为key 所有下标作为值存入字典</span>
-        <span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">))</span>:
-        	hashmap<span class="token punctuation">[</span>num<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i
-            
-        <span class="token keyword">for</span> i,num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>:
-        	<span class="token comment"># 如果 target-num 是hashmap中的健 说明它就是我们要找的数</span>
-            <span class="token keyword">if</span> hashmap.get<span class="token punctuation">(</span>target - num<span class="token punctuation">)</span> <span class="token keyword">in</span> hashmap:
-                <span class="token builtin class-name">return</span> i,hashmap<span class="token punctuation">[</span>target-num<span class="token punctuation">]</span>
-                
-                
-    <span class="token comment">#方法二</span>
-	def twoSum<span class="token punctuation">(</span>self, nums: List<span class="token punctuation">[</span>int<span class="token punctuation">]</span>, target: int<span class="token punctuation">)</span> -<span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span>: 
-        hashmap <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-        <span class="token keyword">for</span> i,num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>:
-            <span class="token keyword">if</span> hashmap.get<span class="token punctuation">(</span>target - num<span class="token punctuation">)</span> is None:
-                hashmap<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> i
-            else:
-                <span class="token builtin class-name">return</span> i,hashmap<span class="token punctuation">[</span>target-num<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <h1 id="安装树梅派操作系统"><a href="#安装树梅派操作系统" class="headerlink" title="安装树梅派操作系统"></a>安装树梅派操作系统</h1><p>&emsp;&emsp;我的手中有一块树梅派3B+的板子，这是我在几年前买的，现在树梅派已经出4代的板子了，并且性能也有了很大的提升。我当时买这块板子主要是为了学习Linux，结果买回来后就一直在吃灰了。中间用这块板子做过软路由，不过也不经常用。今天我要重新给它做个树梅派的操作系统，去玩一下linux和物联网。</p>
+<h2 id="物料准备"><a href="#物料准备" class="headerlink" title="物料准备"></a>物料准备</h2><ol>
+<li>树梅派开发版一块</li>
+<li>8G+ SD卡一块</li>
+<li>读卡器</li>
+<li>一台可以正常运行的电脑</li>
+<li>系统镜像文件</li>
+</ol>
+<h2 id="下载树梅派镜像"><a href="#下载树梅派镜像" class="headerlink" title="下载树梅派镜像"></a>下载树梅派镜像</h2><p>第一步先从树梅派官网下载系统镜像 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/">https://www.raspberrypi.org/software/operating-systems/</a><br><img src="/images/202104261935.png"><br>图片中显示的三种镜像分别是</p>
+<ol>
+<li>桌面系统和推荐软件</li>
+<li>桌面系统</li>
+<li>无桌面系统</li>
+</ol>
+<p>大家可以根据自己的需要进行下载，我这里选择了第一种存在有桌面和推荐软件的。</p>
+<h2 id="格式化sd卡"><a href="#格式化sd卡" class="headerlink" title="格式化sd卡"></a>格式化sd卡</h2><p>&emsp;&emsp;sd卡就是树梅派的硬盘，我们需要把系统镜像写入到SD中所以第一部我们要把SD卡格式化。如何你和我一样是使用的Linux系统，那就使用命令<br>查看u盘</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo fdisk -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>通过刚才的命令可以查看到 /dev/sdd 的磁盘就是刚才插入的u盘，大小为14.5G。接下来我们<br>删除分区</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo fdisk &#x2F;dev&#x2F;sdd
+m # 获取帮助命令
+d # 删除分区
+n # 新建分区
+p # 打印分区表
+w # 写入分区表并退出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一定要记得最后W命令保存退出</p>
+<p>格式化U盘</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo mkfs -V -t vfat &#x2F;dev&#x2F;sdd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>最后为你的U盘 编号，注意一定要区分那个是U盘那个是硬盘和系统盘不然你会把自己的硬盘或系统给格式掉的</p>
+<h2 id="写入镜像到SD卡"><a href="#写入镜像到SD卡" class="headerlink" title="写入镜像到SD卡"></a>写入镜像到SD卡</h2><p>不同的系统有不同的工具可以帮我们把镜像文件写入到U盘或SD卡，大家可以选择自己习惯使用的工具（树梅派官网也有自己的写入工具 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/">https://www.raspberrypi.org/software/</a> 大家可以根据自己的系统进行下载安装）<br>我这里既然是要学习Linux 那我就直接使用命令来操作了.</p>
+<p>写入镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">#先查看盘符
+sudo fdisk -l
+#使用dd命令写入镜像
+sudo dd if&#x3D;&#x2F;home&#x2F;Eric&#x2F;下载&#x2F;2021-03-04-raspios-buster-armhf-full.img of&#x3D;&#x2F;dev&#x2F;sdd bs&#x3D;4M<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>if后面跟的是镜像路径，of后面跟随的是SD卡的位置，bs是表示写入的速度</p>
+<h2 id="配置SSH和Wifi"><a href="#配置SSH和Wifi" class="headerlink" title="配置SSH和Wifi"></a>配置SSH和Wifi</h2><p>镜像写入成功之后重新插拔sd卡，在boot分区下创建ssh文件没有任何后缀名。这样就可以启用树梅派的ssh连接功能。<br>在boot分区下创建wpa_supplicant.conf文件，按照下面的参考格式写入内容并保存</p>
+<pre class="line-numbers language-none"><code class="language-none">country&#x3D;CN
+ctrl_interface&#x3D;DIR&#x3D;&#x2F;var&#x2F;run&#x2F;wpa_supplicant GROUP&#x3D;netdev
+update_config&#x3D;1
+# wifi 1
+network&#x3D;&#123;
+ssid&#x3D;&quot;WiFi-A&quot;
+psk&#x3D;&quot;12345678&quot;
+key_mgmt&#x3D;WPA-PSK
+priority&#x3D;1
+&#125;
+#wifi 2
+network&#x3D;&#123;
+ssid&#x3D;&quot;WiFi-B&quot;
+psk&#x3D;&quot;12345678&quot;
+key_mgmt&#x3D;WPA-PSK
+priority&#x3D;2
+scan_ssid&#x3D;1
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ssid:表示网络的ssid即网络名称<br>psk :表示网络密码<br>priority:表示优先级，数字越大优先级越高<br>scan_ssid:连接隐藏wifi时需要设置为1<br>如果你的wifi没有密码</p>
+<pre class="line-numbers language-none"><code class="language-none">network&#x3D;&#123;
+ssid&#x3D;&quot;WiFi-A&quot;
+key_mgmt&#x3D;NONE
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完成之后就可以将SD卡插入树梅派，然后启动树梅派了。</p>
+<h2 id="连接树梅派"><a href="#连接树梅派" class="headerlink" title="连接树梅派"></a>连接树梅派</h2><p>远程连接树梅派需要ip地址，登陆路由器查看树梅派的ip地址，<br>大家可以根据自己的系统下载远程工具连接树梅派（putty，VNC）。<br>我这里直接使用ssh命令进行连接<br>在命令行中输入ssh命令</p>
+<pre class="line-numbers language-none"><code class="language-none">ssh pi@192.168.3.53<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>大家将ip更换为自己的树梅派ip就可以了，默认密码为:respberry</p>
 
                 
             </div>
@@ -604,7 +568,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fulei3517.github.io/2021/04/12/Leetcode%E7%AE%97%E6%B3%95%E7%AC%AC%E4%B8%80%E9%A2%98~%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">https://fulei3517.github.io/2021/04/12/Leetcode%E7%AE%97%E6%B3%95%E7%AC%AC%E4%B8%80%E9%A2%98~%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</a>
+                    <a href="https://fulei3517.github.io/2021/04/26/%E5%AE%89%E8%A3%85%E6%A0%91%E6%A2%85%E6%B4%BE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">https://fulei3517.github.io/2021/04/26/%E5%AE%89%E8%A3%85%E6%A0%91%E6%A2%85%E6%B4%BE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -642,12 +606,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Leetcode/">
-                                    <span class="chip bg-color">Leetcode</span>
+                                <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/">
+                                    <span class="chip bg-color">树梅派</span>
                                 </a>
                             
-                                <a href="/tags/%E5%88%B7%E9%A2%98/">
-                                    <span class="chip bg-color">刷题</span>
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -817,9 +785,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/04/26/%E5%AE%89%E8%A3%85%E6%A0%91%E6%A2%85%E6%B4%BE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
                     <div class="card-image">
@@ -837,9 +806,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -848,6 +817,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -874,13 +844,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/12/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2021/04/12/Leetcode%E7%AE%97%E6%B3%95%E7%AC%AC%E4%B8%80%E9%A2%98~%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="从零开始创建免费个人博客">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Leetcode算法第一题：两数之和">
                         
-                        <span class="card-title">从零开始创建免费个人博客</span>
+                        <span class="card-title">Leetcode算法第一题：两数之和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -897,8 +867,12 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    个人博客
+                            <a href="/categories/Leetcode/" class="post-category">
+                                    Leetcode
+                                </a>
+                            
+                            <a href="/categories/Leetcode/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -908,8 +882,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/Leetcode/">
+                        <span class="chip bg-color">Leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
