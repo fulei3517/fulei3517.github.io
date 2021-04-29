@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, Eric的博客">
+    <meta name="keywords" content="树梅派的本地与远程连接, Eric的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于 | Eric的博客</title>
+    <title>树梅派的本地与远程连接 | Eric的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">about</h1>
+                    <h1 class="description center-align post-title">树梅派的本地与远程连接</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/">
+                                <span class="chip bg-color">树梅派</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,7 +451,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-12
+                    2021-04-28
                 </div>
                 
 
@@ -467,7 +475,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>我是浮磊</p>
+                <h1 id="树梅派的本地与远程连接"><a href="#树梅派的本地与远程连接" class="headerlink" title="树梅派的本地与远程连接"></a>树梅派的本地与远程连接</h1><p>&emsp;&emsp;上一篇我们给树梅派安装了操作系统，并且设置了wifi。但是我们都是进行的无界面操作，对于习惯图形界面操作的我们来说很是不方面，那这篇我们就来简单的介绍一下有哪些方法可以看到树梅派的操作界面。</p>
+<h2 id="源更新"><a href="#源更新" class="headerlink" title="源更新"></a>源更新</h2><p>&emsp;&emsp;树梅派系统默认使用的数据源是国外的地址，我们在国内使用的时候更新和下载的时候速度会很慢，所以我们先把源更换为国内的清华大学的源<br>第一步编辑sources.list文件</p>
+<pre class="line-numbers language-base" data-language="base"><code class="language-base">sudo nano &#x2F;etc&#x2F;apt&#x2F;sources.list
+#将原有的内容注释掉更换为下面内容
+deb http:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;raspbian&#x2F;raspbian&#x2F; buster main non-free contrib rpi
+deb-src http:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;raspbian&#x2F;raspbian&#x2F; buster main non-free contrib rpi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第二步编辑raspi.list文件</p>
+<pre class="line-numbers language-base" data-language="base"><code class="language-base">sudo nano &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;raspi.list
+#将原有的内容注释掉更换为下面内容
+deb http:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;raspberrypi&#x2F; buster main ui<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>使用 CTRL+O –&gt; Enter –&gt;  CTRL+O 保存并退出<br>建议大家使用 nano 进行更改，我试过使用Vi或vim进行编辑但是出现了一些问题，大家可以自行测试一下</p>
+<p>看到树梅派界面的方法：</p>
+<ol>
+<li>有线连接</li>
+<li>vnc远程连接</li>
+<li>xrdp远程连接</li>
+</ol>
+<h2 id="有线连接"><a href="#有线连接" class="headerlink" title="有线连接"></a>有线连接</h2><p>树梅派拥有标准的HDMI接口，我们只需要有一条HDMI连接线和一个显示设备就可以看得到树梅派的操作界面，另外再接上键盘和鼠标就可以实现操作了，这里就不过多的叙述了，我们主要来讨论一下远程连接。</p>
+<h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><h5 id="VNC远程连接"><a href="#VNC远程连接" class="headerlink" title="VNC远程连接"></a>VNC远程连接</h5><p>树梅派系统帮我们内置了一个VNC服务，我们只需要启动就可以使用VNC客户端进行远程连接操作了。<br>通过SSH连接树梅派，默认帐户是pi，默认密码是raspberry。连接成功以后可以通过命令<code> passwd</code>进行修改密码。<br>启动vnc服务<br>通过命令</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo raspi-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/images/%E6%A0%91%E6%A2%85%E6%B4%BEVNC%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE.png"><br>选中第三项 “Interface Options”使用ENTER进入设置内<br><img src="/images/%E6%A0%91%E6%A2%85%E6%B4%BEVNC%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE2.png"><br>选中VNC选项将状态设置为Enable就可以了。<br>接下来启动VNC客户端输入树梅派IP地址，用户名pi，密码为你的树梅派密码(默认密码为raspberry)</p>
+<h5 id="xrdp远程连接"><a href="#xrdp远程连接" class="headerlink" title="xrdp远程连接"></a>xrdp远程连接</h5><p>个人感觉vnc远程连接时会有卡顿的感觉，并且我们大多人使用的还是windows的操作系统，给树梅派安装xrdp我们就可以直接使用windows自带的远程工具与树梅派进行远程连接，非常方便，个人感觉体验要比VNC好。<br>xrdp的安装也非常的简单方便<br>使用命令</p>
+<pre class="line-numbers language-base" data-language="base"><code class="language-base">sudo apt-get upate
+sudo apt-get install xrdp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>就可以在树梅派上进行下载安装了，建议大家更换源之后再去安装，速度会快很多。</p>
+<hr>
+<p>大家如果有其他更好的方案，欢迎联系我！</p>
 
                 
             </div>
@@ -494,7 +528,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fulei3517.github.io/about/index.html">https://fulei3517.github.io/about/index.html</a>
+                    <a href="https://fulei3517.github.io/2021/04/28/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%A0%91%E6%A2%85%E6%B4%BE%E5%B9%B6%E6%9B%B4%E6%96%B0%E6%BA%90/">https://fulei3517.github.io/2021/04/28/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%A0%91%E6%A2%85%E6%B4%BE%E5%B9%B6%E6%9B%B4%E6%96%B0%E6%BA%90/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -531,7 +565,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/">
+                                    <span class="chip bg-color">树梅派</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -704,13 +746,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2021/04/28/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%A0%91%E6%A2%85%E6%B4%BE%E5%B9%B6%E6%9B%B4%E6%96%B0%E6%BA%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="树梅派的本地与远程连接">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">树梅派的本地与远程连接</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -721,7 +763,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-28
                             </span>
                         <span class="publish-author">
                             
@@ -733,22 +775,34 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/">
+                        <span class="chip bg-color">树梅派</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2021/04/26/%E5%AE%89%E8%A3%85%E6%A0%91%E6%A2%85%E6%B4%BE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="安装树梅派操作系统">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">安装树梅派操作系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -759,17 +813,40 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Eric
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/%E6%A0%91%E6%A2%85%E6%B4%BE/" class="post-category">
+                                    树梅派
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A0%91%E6%A2%85%E6%B4%BE/">
+                        <span class="chip bg-color">树梅派</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
